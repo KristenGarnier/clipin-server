@@ -13,7 +13,7 @@ class SearchController extends FOSRestController
         try {
             $data = $this->get('verify_data')->checkNoLenght(
                 $request->query->all(),
-                $this->get('white_list')->user()
+                $this->get('white_list')->userQuery()
             );
 
             $orderBy= [];
@@ -22,9 +22,12 @@ class SearchController extends FOSRestController
                 $orderBy = [$request->get('orderBy') => $request->get('order')];
             }
 
-
             $queryRes =  $this->get('get_or_404')->checkArray(
-                $this->getDoctrine()->getRepository('KGUserBundle:User')->findBy($data, $orderBy)
+                $this->getDoctrine()->getRepository('KGUserBundle:User')->findBy(
+                    $data,
+                    $orderBy,
+                    $request->get('limit')
+                )
             );
 
             $routeOptions = array(
