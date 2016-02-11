@@ -253,8 +253,4 @@ class UsersController extends FOSRestController
 
         }
     }
-
-    public function getUserSearchAction(Request $request){
-
-    }
 }

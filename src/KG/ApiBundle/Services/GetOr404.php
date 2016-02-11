@@ -12,4 +12,12 @@ class GetOr404
 
         return $res;
     }
+
+    public function checkArray($res){
+        if(empty($res)){
+            throw new \Exception('Query does not match to any user', 404);
+        }
+
+        return $res;
+    }
 }

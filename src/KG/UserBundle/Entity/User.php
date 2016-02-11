@@ -6,7 +6,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
@@ -42,7 +41,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="uuid", type="string", length=255)
      */
-    protected $UUID;
+    protected $uuid;
 
     /**
      * @var int
@@ -226,26 +225,26 @@ class User extends BaseUser
     }
 
     /**
-     * Set uUID
+     * Set uuid
      *
-     * @param string $uUID
+     * @param string $uuid
      *
      * @return User
      */
-    public function setUUID($uUID)
+    public function setUuid($uuid)
     {
-        $this->UUID = $uUID;
+        $this->uuid = $uuid;
 
         return $this;
     }
 
     /**
-     * Get uUID
+     * Get uuid
      *
      * @return string
      */
-    public function getUUID()
+    public function getUuid()
     {
-        return $this->UUID;
+        return $this->uuid;
     }
 }

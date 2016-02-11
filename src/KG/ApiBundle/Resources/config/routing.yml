@@ -1,3 +1,7 @@
 kg_api_users:
     type: rest
     resource: "@KGApiBundle/Controller/UsersController.php"
+
+kg_api_search:
+    type: rest
+    resource: "@KGApiBundle/Controller/SearchController.php"
