@@ -6,8 +6,24 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Util\Codes;
 
+/**
+ * Class SearchController
+ *
+ * Api controller to search users in the db
+ *
+ * @package KG\ApiBundle\Controller
+ */
 class SearchController extends FOSRestController
 {
+
+
+    /**
+     * @param Request $request
+     *
+     * Method that create the request in the db
+     *
+     * @return \FOS\RestBundle\View\View
+     */
     public function getSearchAction(Request $request)
     {
         try {
