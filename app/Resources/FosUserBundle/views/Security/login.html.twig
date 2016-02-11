@@ -1,0 +1,49 @@
+{% extends "layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block menu %}
+    <li><a href="{{ path('kg_front_homepage') }}">Retour à l'accueil</a></li>
+    <li><a href="{{ path('fos_user_registration_register') }}" class="btn btn-blue">S'inscrire</a></li>
+{% endblock %}
+
+{% block content %}
+    <style>
+        label{
+            color: white;
+        }
+    </style>
+    <div style="padding-top: 30vh; padding-bottom: 10vh; height: 100vh; background-color: #00A8FF">
+        <div class="container">
+            <h1 style="color: white">Se connecter</h1>
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                <div class="form-group">
+                    <label for="username">{{ 'security.login.username'|trans }}</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"
+                           required="required"/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password">{{ 'security.login.password'|trans }}</label>
+                    <input type="password" id="password" name="_password" required="required" class="form-control"/>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                </div>
+
+
+                <input class="btn btn-white-fill" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"/>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+services:
+    user_handler:
+         class: KG\ApiBundle\Handlers\UserHandler
+         arguments: ['@doctrine.orm.entity_manager', 'KG\UserBundle\Entity\User', '@fos_user.user_manager']
+
+    verify_data:
+        class: KG\ApiBundle\Services\VerifyData
+
+    white_list:
+        class: KG\ApiBundle\Services\WhiteList
+
+    get_or_404:
+        class: KG\ApiBundle\Services\GetOr404

@@ -1,0 +1,47 @@
+{% extends '@KGAdmin/layout.html.twig' %}
+
+{% block contentheader %}
+    Liste des utilisateurs
+    <a class="btn btn-primary pull-right" href="{{ path('user_new') }}">Ajouter un utilisateur</a>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% for user in users %}
+            <div class="col-md-4">
+                <!-- Widget: user widget style 1 -->
+                <div class="box box-widget widget-user">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <a href="{{ path('user_show', {'id' : user.id}) }}">
+                        <div class="widget-user-header bg-green">
+
+                            <h3 class="widget-user-username">{{ user.nom | capitalize }} {{ user.prenom | capitalize }}</h3>
+                            <h5 class="widget-user-desc">{{ user.email }}</h5>
+
+                        </div>
+                        <div class="widget-user-image">
+                            <img class="img-circle" src="{{ asset('bundles/kgadmin/dist/img/user8-128x128.jpg') }}"
+                                 alt="User Avatar">
+                        </div>
+                    </a>
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="description-block">
+                                    <h5 class="description-header">{{ user.totalRencontres}}</h5>
+                                    <span class="description-text">Rencontres</span>
+                                </div><!-- /.description-block -->
+                            </div><!-- /.col -->
+                            <div class="col-sm-6">
+                                <a class="btn btn-warning col-md-12" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a class="btn btn-danger col-md-12" href="{{ path('user_delete', {'id': user.id}) }}">Suprimmer</a>
+                            </div>
+                        </div><!-- /.row -->
+                    </div>
+                </div><!-- /.widget-user -->
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

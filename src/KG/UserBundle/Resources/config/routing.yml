@@ -1,0 +1,11 @@
+kg_user_user:
+    resource: "@KGUserBundle/Resources/config/routing/user.yml"
+    prefix:   /users
+
+kg_user_homepage:
+    path:     /
+    defaults: { _controller: KGUserBundle:Default:index }
+
+kg_user_fix:
+    path: /generate/{id}
+    defaults: { _controller: KGUserBundle:Default:enrichUser}

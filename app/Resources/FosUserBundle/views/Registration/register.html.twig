@@ -1,0 +1,52 @@
+{% extends "@KGFront/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block menu %}
+    <li><a href="{{ path('kg_front_homepage') }}">Retour à l'accueil</a></li>
+    <li><a href="{{ path('fos_user_security_login') }}" class="btn btn-blue">Se connecter</a></li>
+{% endblock %}
+
+{% block content %}
+    <style>
+        label {
+            color: white;
+        }
+    </style>
+    <div style="padding-top: 20vh; padding-bottom: 10vh; height: 100vh; background-color: #00A8FF">
+        <div class="container">
+            <h1 style="color: white">S'inscrire</h1>
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+            <div class="row">
+                {% for fo in form %}
+                    {% if loop.last == false %}
+                        <div class="col-md-6">
+                            {% if loop.index == 3 %}
+                                {% for f in fo %}
+                                    <div class="form-group">
+                                        {{ form_errors(f) }}
+                                        {{ form_label(f) }}
+                                        {{ form_widget(f, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="form-group">
+                                    {{ form_errors(fo) }}
+                                    {{ form_label(fo) }}
+                                    {{ form_widget(fo, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+            <div>
+                <input class="btn btn-white-fill" type="submit" value="{{ 'registration.submit'|trans }}"/>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends '@KGAdmin/layout.html.twig' %}
+
+{% block contentheader %}
+    Modifier l'utilisateur {{ user.prenom }} {{ user.nom }}
+    <a class="btn btn-primary pull-right" href="{{ path('user_index') }}">Retour à la liste</a>
+
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="box box-info">
+        <div class="box-body">
+            {{ form_start(edit_form) }}
+            {% for fo in edit_form %}
+                {% if loop.last == false %}
+                    {% if loop.index == 3 %}
+                        {% for f in fo %}
+                            <div class="form-group">
+                                {{ form_errors(f) }}
+                                {{ form_label(f) }}
+                                {{ form_widget(f, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="form-group">
+                            {{ form_errors(fo) }}
+                            {{ form_label(fo) }}
+                            {{ form_widget(fo, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Editer</button>
+            {{ form_end(edit_form) }}
+
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+kg_api:
+    type: rest
+    prefix:   /api
+    resource: "@KGApiBundle/Resources/config/routing.yml"
+
+kg_front:
+    resource: "@KGFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+kg_admin:
+    resource: "@KGAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+kg_user:
+    resource: "@KGUserBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
