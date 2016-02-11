@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
@@ -35,6 +36,13 @@ class User extends BaseUser
      * @Assert\NotBlank(message="Veuillez entrer votre prénom", groups={"Registration", "Profile"})
      */
     protected $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="uuid", type="string", length=255)
+     */
+    protected $UUID;
 
     /**
      * @var int
@@ -215,5 +223,29 @@ class User extends BaseUser
     public function getTotalRencontres()
     {
         return $this->totalRencontres;
+    }
+
+    /**
+     * Set uUID
+     *
+     * @param string $uUID
+     *
+     * @return User
+     */
+    public function setUUID($uUID)
+    {
+        $this->UUID = $uUID;
+
+        return $this;
+    }
+
+    /**
+     * Get uUID
+     *
+     * @return string
+     */
+    public function getUUID()
+    {
+        return $this->UUID;
     }
 }

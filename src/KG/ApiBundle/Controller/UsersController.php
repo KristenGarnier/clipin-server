@@ -52,9 +52,7 @@ class UsersController extends FOSRestController
                 $this->get('white_list')->user()
             );
 
-            $user = $this->get('get_or_404')->check(
-                $this->get('user_handler')->getUser($id)
-            );
+            $this->get('user_handler')->saveUser($data);
 
             $routeOptions = array(
                 '_format' => $request->get('_format')
@@ -254,5 +252,9 @@ class UsersController extends FOSRestController
             return $this->view(['error' => $e->getMessage()], Codes::HTTP_CONFLICT, $routeOptions);
 
         }
+    }
+
+    public function getUserSearchAction(Request $request){
+
     }
 }
