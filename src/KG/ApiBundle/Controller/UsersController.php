@@ -57,7 +57,7 @@ class UsersController extends FOSRestController
             $routeOptions = array(
                 '_format' => $request->get('_format')
             );
-            return $this->view(null, Codes::HTTP_CREATED, $routeOptions);
+            return $this->view($this->get('user_handler')->getUsers(), Codes::HTTP_CREATED, $routeOptions);
 
         } catch (\Exception $e) {
             $routeOptions = array(
