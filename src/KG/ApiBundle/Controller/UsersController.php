@@ -171,7 +171,7 @@ class UsersController extends FOSRestController
 
             $target = $this->get('user_handler')->getUser($request->get('user'));
 
-            $this->get('user_handler')->addRelation($user, $target);
+            $this->get('user_handler')->addRelation($user, $target, $request->get('compatibility'));
 
             $routeOptions = array(
                 '_format' => $request->get('_format')

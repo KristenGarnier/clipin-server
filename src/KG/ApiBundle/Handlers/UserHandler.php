@@ -73,11 +73,11 @@ class UserHandler
 
     }
 
-    public function addRelation(User $user, User $target)
+    public function addRelation(User $user, User $target, $compatibility)
     {
         $relation = new Relation();
 
-        $relation->setCompatibilite(60);
+        $relation->setCompatibilite($compatibility);
         $relation->setDate(new \DateTime());
         $relation->setTarget($target);
 
