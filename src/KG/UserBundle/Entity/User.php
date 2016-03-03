@@ -8,7 +8,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="UserRepository")
  * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
@@ -35,6 +35,56 @@ class User extends BaseUser
      * @Assert\NotBlank(message="Veuillez entrer votre prénom", groups={"Registration", "Profile"})
      */
     protected $prenom;
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="age", type="integer")
+     */
+    protected $age;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="metier", type="string", length=255)
+     */
+    protected $metier;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tel", type="string", length=255)
+     */
+    protected $tel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
+     */
+    protected $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cp", type="string", length=255)
+     */
+    protected $cp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    protected $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="entreprise", type="string", length=255)
+     */
+    protected $entreprise;
 
     /**
      * @var string
@@ -246,5 +296,117 @@ class User extends BaseUser
     public function getUuid()
     {
         return $this->uuid;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param int $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMetier()
+    {
+        return $this->metier;
+    }
+
+    /**
+     * @param string $metier
+     */
+    public function setMetier($metier)
+    {
+        $this->metier = $metier;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param string $tel
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * @param mixed $entreprise
+     */
+    public function setEntreprise($entreprise)
+    {
+        $this->entreprise = $entreprise;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param mixed $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCp()
+    {
+        return $this->cp;
+    }
+
+    /**
+     * @param mixed $cp
+     */
+    public function setCp($cp)
+    {
+        $this->cp = $cp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param mixed $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
     }
 }
