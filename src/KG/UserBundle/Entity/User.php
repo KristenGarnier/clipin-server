@@ -111,6 +111,13 @@ class User extends BaseUser
      */
     protected $relations;
 
+    /**
+     * @var object
+     *
+     * @ORM\Column(name="image", type="blob")
+     */
+    protected $image;
+
     public function __construct()
     {
         parent::__construct();
@@ -408,5 +415,21 @@ class User extends BaseUser
     public function setVille($ville)
     {
         $this->ville = $ville;
+    }
+
+    /**
+     * @return object
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param object $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 }

@@ -11,3 +11,6 @@ services:
 
     get_or_404:
         class: KG\ApiBundle\Services\GetOr404
+
+    check_compatibility:
+            class: KG\ApiBundle\Services\CheckCompatibility
