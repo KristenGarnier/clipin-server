@@ -114,9 +114,79 @@ class User extends BaseUser
     /**
      * @var object
      *
-     * @ORM\Column(name="image", type="blob")
+     * @ORM\Column(name="image", type="text")
      */
     protected $image;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="salaireminimum", type="integer")
+     */
+    protected $salaireminimum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="experiencespro", type="text")
+     */
+    protected $experiencespro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="competence", type="text")
+     */
+    protected $competence;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="permis", type="boolean")
+     */
+    protected $permis;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hobbies", type="text")
+     */
+    protected $hobbies;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="diplome", type="string")
+     */
+    protected $diplome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="preferences", type="text")
+     */
+    protected $preferences;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etre", type="string")
+     */
+    protected $etre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recherche", type="string")
+     */
+    protected $recherche;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="parametres", type="text")
+     */
+    protected $parametres = '{}';
 
     public function __construct()
     {
@@ -203,10 +273,10 @@ class User extends BaseUser
     public function getRelationsArray()
     {
         $relations = [];
-        $this->relations->map(function($item) use ($relations){
+        $this->relations->map(function ($item) use ($relations) {
             array_push($relations, $item);
         });
-        return  $relations;
+        return $relations;
     }
 
     /**
@@ -431,5 +501,237 @@ class User extends BaseUser
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    /**
+     * Set salaireminimum
+     *
+     * @param integer $salaireminimum
+     *
+     * @return User
+     */
+    public function setSalaireminimum($salaireminimum)
+    {
+        $this->salaireminimum = $salaireminimum;
+
+        return $this;
+    }
+
+    /**
+     * Get salaireminimum
+     *
+     * @return integer
+     */
+    public function getSalaireminimum()
+    {
+        return $this->salaireminimum;
+    }
+
+    /**
+     * Set experiencespro
+     *
+     * @param string $experiencespro
+     *
+     * @return User
+     */
+    public function setExperiencespro($experiencespro)
+    {
+        $this->experiencespro = $experiencespro;
+
+        return $this;
+    }
+
+    /**
+     * Get experiencespro
+     *
+     * @return string
+     */
+    public function getExperiencespro()
+    {
+        return $this->experiencespro;
+    }
+
+    /**
+     * Set competence
+     *
+     * @param string $competence
+     *
+     * @return User
+     */
+    public function setCompetence($competence)
+    {
+        $this->competence = $competence;
+
+        return $this;
+    }
+
+    /**
+     * Get competence
+     *
+     * @return string
+     */
+    public function getCompetence()
+    {
+        return $this->competence;
+    }
+
+    /**
+     * Set permis
+     *
+     * @param boolean $permis
+     *
+     * @return User
+     */
+    public function setPermis($permis)
+    {
+        $this->permis = $permis;
+
+        return $this;
+    }
+
+    /**
+     * Get permis
+     *
+     * @return boolean
+     */
+    public function getPermis()
+    {
+        return $this->permis;
+    }
+
+    /**
+     * Set hobbies
+     *
+     * @param string $hobbies
+     *
+     * @return User
+     */
+    public function setHobbies($hobbies)
+    {
+        $this->hobbies = $hobbies;
+
+        return $this;
+    }
+
+    /**
+     * Get hobbies
+     *
+     * @return string
+     */
+    public function getHobbies()
+    {
+        return $this->hobbies;
+    }
+
+    /**
+     * Set diplome
+     *
+     * @param string $diplome
+     *
+     * @return User
+     */
+    public function setDiplome($diplome)
+    {
+        $this->diplome = $diplome;
+
+        return $this;
+    }
+
+    /**
+     * Get diplome
+     *
+     * @return string
+     */
+    public function getDiplome()
+    {
+        return $this->diplome;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPreferences()
+    {
+        return $this->preferences;
+    }
+
+    /**
+     * @param string $preferences
+     */
+    public function setPreferences($preferences)
+    {
+        $this->preferences = $preferences;
+    }
+
+    /**
+     * Set etre
+     *
+     * @param boolean $etre
+     *
+     * @return User
+     */
+    public function setEtre($etre)
+    {
+        $this->etre = $etre;
+
+        return $this;
+    }
+
+    /**
+     * Get etre
+     *
+     * @return boolean
+     */
+    public function getEtre()
+    {
+        return $this->etre;
+    }
+
+    /**
+     * Set recherche
+     *
+     * @param boolean $recherche
+     *
+     * @return User
+     */
+    public function setRecherche($recherche)
+    {
+        $this->recherche = $recherche;
+
+        return $this;
+    }
+
+    /**
+     * Get recherche
+     *
+     * @return boolean
+     */
+    public function getRecherche()
+    {
+        return $this->recherche;
+    }
+
+    /**
+     * Set parametres
+     *
+     * @param string $parametres
+     *
+     * @return User
+     */
+    public function setParametres($parametres)
+    {
+        $this->parametres = $parametres;
+
+        return $this;
+    }
+
+    /**
+     * Get parametres
+     *
+     * @return string
+     */
+    public function getParametres()
+    {
+        return $this->parametres;
     }
 }
