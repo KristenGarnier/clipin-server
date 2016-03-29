@@ -60,9 +60,7 @@ class UserHandler
 
     public function updateUser(array $data, User $user)
     {
-
         $this->hydrate($data, $user);
-
         $this->manager->updateUser($user);
     }
 
@@ -104,6 +102,8 @@ class UserHandler
         foreach ($data as $key => $value) {
             if ($key === 'password') {
                 $user->setPlainPassword($value);
+            } elseif ($key === 'parametres') {
+                $user->setParametres(json_encode($value));
             } else {
                 $method = "set" . ucfirst($key);
                 $user->{$method}($value);
