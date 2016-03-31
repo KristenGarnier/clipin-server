@@ -40,63 +40,63 @@ class User extends BaseUser
     /**
      * @var int
      *
-     * @ORM\Column(name="age", type="integer")
+     * @ORM\Column(name="age", type="integer", nullable=true)
      */
     protected $age;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="metier", type="string", length=255)
+     * @ORM\Column(name="metier", type="string", length=255, nullable=true)
      */
     protected $metier;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tel", type="string", length=255)
+     * @ORM\Column(name="tel", type="string", length=255, nullable=true)
      */
     protected $tel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
      */
     protected $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cp", type="string", length=255)
+     * @ORM\Column(name="cp", type="string", length=255, nullable=true)
      */
     protected $cp;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ville", type="string", length=255)
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
      */
     protected $ville;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="entreprise", type="string", length=255)
+     * @ORM\Column(name="entreprise", type="string", length=255, nullable=true)
      */
     protected $entreprise;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="uuid", type="string", length=255)
+     * @ORM\Column(name="uuid", type="string", length=255, nullable=true)
      */
     protected $uuid;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="total_rencontres", type="integer")
+     * @ORM\Column(name="total_rencontres", type="integer", nullable=true)
      */
     protected $totalRencontres = 0;
 
@@ -114,70 +114,70 @@ class User extends BaseUser
     /**
      * @var object
      *
-     * @ORM\Column(name="image", type="text")
+     * @ORM\Column(name="image", type="text", nullable=true)
      */
     protected $image;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="salaireminimum", type="integer")
+     * @ORM\Column(name="salaireminimum", type="integer", nullable=true)
      */
     protected $salaireminimum;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="experiencespro", type="text")
+     * @ORM\Column(name="experiencespro", type="text", nullable=true)
      */
     protected $experiencespro;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="competence", type="text")
+     * @ORM\Column(name="competence", type="text", nullable=true)
      */
     protected $competence;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="permis", type="boolean")
+     * @ORM\Column(name="permis", type="boolean", nullable=true)
      */
     protected $permis;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="hobbies", type="text")
+     * @ORM\Column(name="hobbies", type="text", nullable=true)
      */
     protected $hobbies;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="diplome", type="string")
+     * @ORM\Column(name="diplome", type="string", nullable=true)
      */
     protected $diplome;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="preferences", type="text")
+     * @ORM\Column(name="preferences", type="text", nullable=true)
      */
     protected $preferences;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="etre", type="string")
+     * @ORM\Column(name="etre", type="string", nullable=true)
      */
     protected $etre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="recherche", type="string")
+     * @ORM\Column(name="recherche", type="string", nullable=true)
      */
     protected $recherche;
 
