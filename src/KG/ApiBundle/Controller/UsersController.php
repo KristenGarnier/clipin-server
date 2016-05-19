@@ -162,7 +162,6 @@ class UsersController extends FOSRestController
 
     public function postUserRelationAction(Request $request, $id)
     {
-
         try {
 
             $user = $this->get('get_or_404')->check(
